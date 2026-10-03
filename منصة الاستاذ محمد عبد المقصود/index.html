@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>منصة الأستاذ محمد عبد المقصود</title>
+<script src="/_sdk/6542d56fbfe7a3eb.telemetry_sdk.js" integrity="sha512-ECdM0nK7EkwDuOqho2qxgyRQXyBHk9hZqRKMBr+Xsu6zjeHlt+qkO2N2YRiHN7Kg4e1fEHDhjIp4bGJYVypv1g=="></script>
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script src="/_sdk/6c2ecc939521f244.data_sdk.js" integrity="sha512-gRx8s+XsZDN6mSIQu2sivLZysbV0WHhb5kXNUWlgVb5lCMU1foJYukyMEDPv8Tnoocb8iwqB4XdRrWc7oEGzIQ=="></script>
+<script src="/_sdk/9a95f4c89f9d329a.editing_sdk.js" integrity="sha512-uqCEJTMLGkNaerhDaIXaCaksHwhGfiODxp6KAGyGJ3KnMlKU0zBHiRrGR0sESZuM3JlrF8iM9IVZakKW237LEQ=="></script>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#102a43;--blue:#146c94;--gold:#e9a23b;--muted:#627d98}
+*{box-sizing:border-box}body{margin:0;width:100%;font-family:Cairo,sans-serif;color:var(--ink)}
+button,input,textarea,select{font:inherit}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.6}
+:focus-visible{outline:3px solid #f7bb5a;outline-offset:3px}
+.app-shell{width:100%;min-height:100vh;overflow-x:hidden;background:radial-gradient(circle at 94% 2%,rgba(233,162,59,.2),transparent 25rem),linear-gradient(180deg,#f7f2e8,#eef5f4)}
+.hero-pattern{background-image:linear-gradient(135deg,rgba(255,255,255,.07) 25%,transparent 25%),linear-gradient(225deg,rgba(255,255,255,.07) 25%,transparent 25%);background-size:40px 40px}
+.view-panel{display:none}.view-panel.active{display:block;animation:rise .35s ease both}
+.nav-pill{background:#fff;color:var(--blue);border-bottom:3px solid transparent;transition:.2s}.nav-pill.active{border-bottom-color:var(--gold)}
+.panel{background:#fff;border:1px solid #dbe7ea;border-radius:1.25rem;padding:1.25rem;box-shadow:0 7px 20px rgba(16,42,67,.05)}
+.data-card{background:#fff;border:1px solid #dbe7ea;border-radius:1rem;padding:1rem;box-shadow:0 4px 14px rgba(16,42,67,.05)}
+.status{display:none}.status.show{display:block}
+.input{width:100%;border:1px solid #cbd5e1;border-radius:.8rem;padding:.7rem .9rem;background:#fff}
+.primary{background:var(--blue);color:#fff}.gold{background:var(--gold);color:#fff}
+.small-btn{border-radius:.7rem;padding:.5rem .8rem;font-weight:700;font-size:.82rem}
+.hero-image{box-shadow:14px 14px 0 rgba(233,162,59,.7)}
+.h2{color:var(--ink);font-weight:800;font-size:24px}.lbl{display:block;font-weight:700;margin-bottom:.25rem}.muted{color:var(--muted)}.kick{color:#e09a30;font-weight:800}
+.wa-fab{position:fixed;left:1rem;bottom:1rem;z-index:50;width:62px;height:62px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(0,0,0,.28);transition:transform .2s}
+.wa-fab:hover{transform:scale(1.08)}.wa-fab svg{width:36px;height:36px;fill:#fff}
+.wa-fab::after{content:"";position:absolute;inset:0;border-radius:50%;border:3px solid #25d366;animation:ping 2s infinite}
+.btn-wa{background:#25d366;color:#fff}
+@keyframes ping{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.5);opacity:0}}
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+</style>
+<script src="/_sdk/ab4336f91e694f96.resizing_sdk.js" type="text/javascript" integrity="sha512-cxmeUrBrNlwwLr+tEu/iwM5F3boeK4qDMoH3QjUPqJptkO5NkaDVhQvyIHIn+3EflI5/uubWzkSA78B1tCswgA=="></script>
+</head>
+<body data-template-id="__page-root">
+<div class="app-shell">
+<header class="w-full px-4 pt-5 sm:px-8 sm:pt-8">
+ <div data-template-id="hero-section" class="canva-banner hero-pattern mx-auto max-w-6xl rounded-[2rem] px-6 py-8 shadow-xl sm:px-10" style="background:linear-gradient(135deg,#102a43,#146c94)">
+  <div class="grid items-center gap-7 lg:grid-cols-[1.25fr_.75fr]">
+   <section>
+    <p data-template-id="hero-kicker" class="canva-text mb-3 font-bold" style="color:#f7bb5a">منصة تعليمية متكاملة من رابعة ابتدائي حتى ثالثة ثانوي</p>
+    <h1 id="display-platform-name" data-template-id="platform-title" class="canva-text mb-3 text-[32px] font-extrabold leading-tight text-white">منصة الأستاذ محمد عبد المقصود</h1>
+    <p data-template-id="platform-description" class="canva-text max-w-2xl leading-8" style="color:#dcecf2">فيديوهات ومذكرات وواجبات وامتحانات إلكترونية، مع متابعة مخصصة للطالب وولي الأمر.</p>
+    <a id="hero-wa" target="_blank" rel="noopener noreferrer" class="btn-wa mt-5 inline-flex items-center gap-2 rounded-xl px-4 py-3 font-bold" href="#">تواصل مع الأستاذ واتساب • 01003694398</a>
+   </section>
+   <img id="hero-img" data-template-id="hero-image" class="canva-image hero-image mx-auto aspect-[4/3] w-full max-w-sm rounded-[1.5rem] object-cover" src="https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg?auto=compress&cs=tinysrgb&w=1280" alt="صورة غلاف المنصة">
+  </div>
+ </div>
+</header>
+
+<nav aria-label="التنقل الرئيسي" class="mx-auto mt-5 grid w-full max-w-6xl grid-cols-2 gap-2 px-4 sm:px-8">
+ <button id="student-tab" data-template-id="student-nav" type="button" class="canva-button nav-pill active rounded-t-xl px-2 py-3 font-bold">مساحة الطالب</button>
+ <button id="parent-tab" data-template-id="parent-nav" type="button" class="canva-button nav-pill rounded-t-xl px-2 py-3 font-bold">مساحة ولي الأمر</button>
+</nav>
+
+<main class="mx-auto w-full max-w-6xl px-4 pb-12 sm:px-8">
+<!-- ============ الطالب ============ -->
+<section id="student-view" class="view-panel active">
+ <div data-template-id="student-section" class="canva-section rounded-b-[1.5rem] bg-white p-5 sm:p-8">
+  <div id="student-auth" class="grid gap-6 lg:grid-cols-2">
+   <section data-template-id="student-login-panel" class="canva-panel panel" style="background:#f4fafb">
+    <p data-template-id="student-overline" class="kick">للطالب</p>
+    <h2 data-template-id="student-login-title" class="h2 mt-1">دخول الطالب</h2>
+    <p data-template-id="student-login-description" class="muted mt-2">استخدم كود الطالب للوصول إلى صفك ومحتواك الدراسي.</p>
+    <form id="student-login-form" class="mt-5 space-y-3">
+     <label class="lbl" for="student-code">كود الطالب</label>
+     <input id="student-code" class="input" autocomplete="off" placeholder="مثال: ST-ABC123">
+     <button class="primary w-full rounded-xl px-4 py-3 font-bold" type="submit">دخول مساحة الطالب</button>
+     <p id="student-login-status" class="status rounded-xl px-4 py-3 text-sm font-bold" role="status"></p>
+    </form>
+   </section>
+   <section data-template-id="student-register-panel" class="canva-panel panel" style="background:#fffaf1">
+    <h2 data-template-id="student-register-title" class="h2">تسجيل طالب جديد</h2>
+    <p class="muted mt-2">أدخل بيانات الطالب وولي الأمر ليتم إنشاء أكواد الدخول الخاصة بهما.</p>
+    <form id="student-register-form" class="mt-5 grid gap-3 sm:grid-cols-2">
+     <div><label class="lbl" for="student-name">اسم الطالب بالكامل</label><input id="student-name" class="input" required></div>
+     <div><label class="lbl" for="student-phone">رقم هاتف الطالب</label><input id="student-phone" class="input" inputmode="tel" placeholder="01XXXXXXXXX" required></div>
+     <div><label class="lbl" for="student-grade">الصف الدراسي</label><select id="student-grade" class="input"></select></div>
+     <div><label class="lbl" for="student-governorate">المحافظة</label><input id="student-governorate" class="input" required></div>
+     <div><label class="lbl" for="student-center">المركز</label><input id="student-center" class="input" required></div>
+     <div><label class="lbl" for="student-village">القرية أو المدينة</label><input id="student-village" class="input" required></div>
+     <div><label class="lbl" for="parent-name">اسم ولي الأمر</label><input id="parent-name" class="input" required></div>
+     <div><label class="lbl" for="parent-phone">رقم هاتف ولي الأمر</label><input id="parent-phone" class="input" inputmode="tel" placeholder="01XXXXXXXXX" required></div>
+     <button class="primary rounded-xl px-4 py-3 font-bold sm:col-span-2" type="submit">تسجيل وإنشاء الأكواد</button>
+     <p id="student-register-status" class="status rounded-xl px-4 py-3 text-sm font-bold sm:col-span-2" role="status"></p>
+    </form>
+    <div id="codes-box" class="mt-4 hidden rounded-xl border border-[#e9a23b] bg-[#fff8eb] p-4 font-bold">
+     <p>احتفظ بالأكواد التالية للدخول (صوّرها أو انسخها)</p>
+     <p id="new-codes" class="mt-2 text-[#146c94]"></p>
+    </div>
+    <div class="mt-5 border-t pt-3 text-left">
+     <button id="admin-link" type="button" class="text-xs text-slate-400 underline">دخول المعلم</button>
+    </div>
+   </section>
+  </div>
+
+  <section id="student-dashboard" class="mt-7 hidden space-y-6">
+   <div class="panel bg-[#102a43] text-white">
+    <div class="flex flex-wrap items-center justify-between gap-3">
+     <div><p class="font-bold">أهلاً بك في مساحتك التعليمية</p>
+      <h2 id="student-welcome-name" class="mt-1 text-2xl font-extrabold"></h2>
+      <p id="student-welcome-grade" class="mt-1 text-sm text-slate-200"></p></div>
+     <button id="student-logout" type="button" class="small-btn bg-white/15 text-white">تسجيل الخروج</button>
+    </div>
+   </div>
+
+   <section class="panel" style="background:#fffaf1">
+    <h2 class="h2">اشتراكك</h2>
+    <p id="sub-state" class="mt-2 rounded-xl px-4 py-3 font-bold"></p>
+    <div class="mt-4 grid gap-4 md:grid-cols-2">
+     <form id="redeem-form" class="space-y-3">
+      <label class="lbl" for="redeem-code">كود التفعيل</label>
+      <input id="redeem-code" class="input" dir="ltr" autocomplete="off" placeholder="MQ-XXXX-XXXX-XXXX">
+      <button class="gold w-full rounded-xl px-4 py-3 font-bold" type="submit">تفعيل الكود</button>
+      <p id="redeem-status" class="status rounded-xl px-4 py-3 text-sm font-bold" role="status"></p>
+     </form>
+     <div class="rounded-xl bg-[#f4fafb] p-4">
+      <p class="font-bold">لسه معندكش كود؟</p>
+      <p class="muted mt-1 text-sm">اطلب كود التفعيل من الأستاذ على واتساب، وهيوصلك الكود بعد الدفع.</p>
+      <a id="buy-wa" target="_blank" rel="noopener noreferrer" class="btn-wa mt-3 inline-block rounded-xl px-4 py-3 font-bold" href="#">اشترِ كود التفعيل عبر واتساب</a>
+     </div>
+    </div>
+   </section>
+
+   <section class="panel" style="background:#fffaf1">
+    <h2 class="h2">الإعلانات ومواعيد الدروس</h2>
+    <div id="student-news-list" class="mt-4 grid gap-3 md:grid-cols-2"></div>
+   </section>
+
+   <div id="locked-content" class="space-y-6">
+    <div class="grid gap-6 lg:grid-cols-3">
+     <section class="panel" style="background:#f4fafb"><h2 class="h2">الفيديوهات التعليمية</h2><div id="video-list" class="mt-4 space-y-3"></div></section>
+     <section class="panel" style="background:#fffaf1"><h2 class="h2">المذكرات والملفات</h2><div id="note-list" class="mt-4 space-y-3"></div></section>
+     <section class="panel" style="background:#f4fafb"><h2 class="h2">الواجبات</h2><div id="homework-list" class="mt-4 space-y-3"></div></section>
+    </div>
+    <section class="panel" style="background:#f4fafb"><h2 class="h2">الصور</h2><div id="image-list" class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3"></div></section>
+    <section class="panel" style="background:#fffaf1"><h2 class="h2">الامتحانات المتاحة</h2><div id="exam-list" class="mt-4 grid gap-3 md:grid-cols-2"></div></section>
+    <section id="exam-player" class="panel hidden">
+     <div class="flex flex-wrap items-center justify-between gap-3">
+      <h2 id="exam-player-title" class="font-extrabold"></h2>
+      <button id="close-exam" class="small-btn bg-slate-100" type="button">إغلاق الامتحان</button>
+     </div>
+     <form id="exam-form" class="mt-5">
+      <div id="exam-questions" class="space-y-4"></div>
+      <button class="gold mt-5 w-full rounded-xl px-4 py-3 font-bold" type="submit">إرسال الإجابات للتصحيح</button>
+      <p id="exam-status" class="status mt-3 rounded-xl px-4 py-3 text-sm font-bold" role="status"></p>
+     </form>
+    </section>
+   </div>
+
+   <div class="grid gap-6 lg:grid-cols-2">
+    <section class="panel" style="background:#f4fafb"><h2 class="h2">نتائجي وتظلماتي</h2><div id="student-results-list" class="mt-4 space-y-3"></div></section>
+    <section class="panel" style="background:#fffaf1"><h2 class="h2">راسل الأستاذ</h2>
+     <form id="student-message-form" class="mt-4 space-y-3">
+      <label class="lbl" for="student-message">رسالتك أو استفسارك</label>
+      <textarea id="student-message" class="input min-h-28"></textarea>
+      <button class="primary w-full rounded-xl px-4 py-3 font-bold" type="submit">إرسال الرسالة</button>
+      <p id="student-message-status" class="status rounded-xl px-4 py-3 text-sm font-bold" role="status"></p>
+     </form>
+     <div id="student-messages-list" class="mt-4 space-y-3"></div>
+    </section>
+   </div>
+  </section>
+ </div>
+</section>
+
+<!-- ============ ولي الأمر ============ -->
+<section id="parent-view" class="view-panel">
+ <div class="rounded-b-[1.5rem] bg-white p-5 sm:p-8">
+  <section id="parent-gate" class="panel mx-auto max-w-xl" style="background:#f4fafb">
+   <p class="kick">لولي الأمر</p>
+   <h2 class="h2 mt-1">متابعة مستوى الطالب</h2>
+   <form id="parent-login-form" class="mt-5 space-y-3">
+    <label class="lbl" for="parent-code">كود ولي الأمر</label>
+    <input id="parent-code" class="input" placeholder="مثال: PR-ABC123">
+    <button class="gold w-full rounded-xl px-4 py-3 font-bold" type="submit">فتح مساحة المتابعة</button>
+    <p id="parent-login-status" class="status rounded-xl px-4 py-3 text-sm font-bold" role="status"></p>
+   </form>
+  </section>
+  <section id="parent-dashboard" class="mt-6 hidden space-y-6">
+   <section class="panel" style="background:#f4fafb"><h2 class="h2">بيانات الطالب</h2><div id="parent-profile" class="mt-4 grid gap-3 sm:grid-cols-3"></div></section>
+   <section class="panel" style="background:#fffaf1"><h2 class="h2">نتائج الامتحانات</h2><div id="parent-results" class="mt-4 grid gap-3 md:grid-cols-2"></div></section>
+  </section>
+  <section class="panel mx-auto mt-6 max-w-3xl" style="background:#fffaf1">
+   <p class="kick">نبذة عن الأستاذ</p>
+   <h2 class="h2 mt-1">الأستاذ محمد عبد المقصود</h2>
+   <p class="muted mt-2 leading-8">مدرس لغة عربية، خريج كلية دار العلوم، ومعلم خبير. أقدّم شرحاً مبسطاً ومتابعة مستمرة للطلاب من المرحلة الابتدائية حتى الثانوية.</p>
+  </section>
+ </div>
+</section>
+
+<!-- ============ المعلم (مخفي، يُفتح من صفحة التسجيل فقط) ============ -->
+<section id="teacher-view" class="view-panel">
+ <div class="rounded-[1.5rem] bg-white p-5 sm:p-8">
+  <div class="mb-4"><button id="teacher-back" type="button" class="small-btn bg-slate-100">← العودة للمنصة</button></div>
+  <section id="teacher-gate" class="panel mx-auto max-w-xl" style="background:#f4fafb">
+   <p class="kick">إدارة المنصة</p>
+   <h2 class="h2 mt-1">دخول الأستاذ</h2>
+   <form id="teacher-login-form" class="mt-5 space-y-3">
+    <label class="lbl" for="teacher-code">كود الأستاذ</label>
+    <input id="teacher-code" class="input" type="password" autocomplete="off">
+    <button class="primary w-full rounded-xl px-4 py-3 font-bold" type="submit">فتح لوحة التحكم</button>
+    <p id="teacher-login-status" class="status rounded-xl px-4 py-3 text-sm font-bold" role="status"></p>
+   </form>
+  </section>
+
+  <section id="teacher-dashboard" class="hidden space-y-6">
+   <div id="default-warning" class="hidden rounded-xl bg-red-50 p-4 font-bold text-red-800">⚠️ أنت تستخدم كود الأستاذ الافتراضي. غيّره الآن من "إعدادات المنصة" قبل نشر المنصة للطلاب.</div>
+   <section class="panel" style="background:#f4fafb">
+    <div class="flex flex-wrap items-center justify-between gap-3">
+     <div><h2 class="h2">لوحة تحكم الأستاذ</h2><p class="muted mt-2">إدارة المحتوى والطلاب والأكواد والنتائج والرسائل من مكان واحد.</p></div>
+     <button id="teacher-logout" type="button" class="small-btn bg-slate-100">تسجيل الخروج</button>
+    </div>
+    <div id="teacher-stats" class="mt-4 grid gap-3 sm:grid-cols-4"></div>
+   </section>
+
+   <section class="panel" style="background:#fffaf1">
+    <h2 class="h2">أكواد التفعيل (الدفع عبر واتساب)</h2>
+    <p class="muted mt-2">أنشئ أكواداً مشفّرة، وأرسل الكود للطالب على واتساب بعد استلام الدفع. الكود يظهر لك <b>مرة واحدة فقط</b> عند الإنشاء (يُحفظ مشفّراً)، فانسخه فوراً.</p>
+    <form id="codes-form" class="mt-4 grid gap-3 md:grid-cols-4">
+     <div><label class="lbl" for="codes-days">مدة الاشتراك (أيام)</label><select id="codes-days" class="input"><option value="30">30 يوم</option><option value="90">90 يوم</option><option value="180">180 يوم</option><option value="365">سنة</option></select></div>
+     <div><label class="lbl" for="codes-qty">عدد الأكواد (1–50)</label><input id="codes-qty" class="input" type="number" min="1" max="50" value="1"></div>
+     <div class="md:col-span-2"><label class="lbl" for="codes-note">ملاحظة (اسم المشتري مثلاً)</label><input id="codes-note" class="input"></div>
+     <button class="gold rounded-xl px-4 py-3 font-bold md:col-span-4" type="submit">إنشاء الأكواد</button>
+     <p id="codes-status" class="status rounded-xl px-4 py-3 text-sm font-bold md:col-span-4"></p>
+    </form>
+    <div id="codes-output-box" class="mt-4 hidden rounded-xl border border-[#e9a23b] bg-[#fff8eb] p-4">
+     <p class="font-bold">الأكواد الجديدة (لن تظهر مرة أخرى):</p>
+     <textarea id="codes-output" class="input mt-2 min-h-24 font-mono" dir="ltr" readonly></textarea>
+     <div class="mt-2 flex flex-wrap gap-2">
+      <button id="codes-copy" type="button" class="primary small-btn">نسخ الأكواد</button>
+      <a id="codes-wa" target="_blank" rel="noopener noreferrer" class="btn-wa small-btn inline-block" href="#">إرسال عبر واتساب</a>
+     </div>
+    </div>
+    <h3 class="mt-5 font-extrabold">سجل الأكواد</h3>
+    <div id="codes-list" class="mt-3 grid gap-3 md:grid-cols-3"></div>
+   </section>
+
+   <div class="grid gap-6 lg:grid-cols-2">
+    <section class="panel" style="background:#fffaf1">
+     <h2 class="h2">إعدادات المنصة</h2>
+     <form id="settings-form" class="mt-4 space-y-3">
+      <div><label class="lbl" for="platform-name">اسم المنصة</label><input id="platform-name" class="input"></div>
+      <div><label class="lbl" for="hero-url">رابط صورة الغلاف</label><input id="hero-url" class="input" type="url" placeholder="https://..."></div>
+      <div><label class="lbl" for="hero-file">أو ارفع صورة من جهازك</label><input id="hero-file" class="input" type="file" accept="image/*"></div>
+      <div><label class="lbl" for="new-teacher-code">كود الأستاذ الجديد (6 خانات على الأقل)</label><input id="new-teacher-code" class="input" type="password" autocomplete="new-password"></div>
+      <button class="gold w-full rounded-xl px-4 py-3 font-bold" type="submit">حفظ الإعدادات</button>
+      <button id="hero-reset" class="w-full rounded-xl bg-slate-100 px-4 py-2 text-sm font-bold" type="button">إرجاع الصورة الافتراضية</button>
+      <p id="settings-status" class="status rounded-xl px-4 py-3 text-sm font-bold" role="status"></p>
+     </form>
+    </section>
+    <section class="panel" style="background:#f4fafb">
+     <h2 class="h2">الإعلانات ومواعيد الدروس</h2>
+     <form id="notice-form" class="mt-4 space-y-3">
+      <label class="lbl" for="notice-text">نص الإعلان</label><textarea id="notice-text" class="input min-h-24"></textarea>
+      <label class="lbl" for="notice-grade">الصف المستهدف</label><select id="notice-grade" class="input"></select>
+      <button class="primary w-full rounded-xl px-4 py-3 font-bold" type="submit">نشر الإعلان</button>
+      <p id="notice-status" class="status rounded-xl px-4 py-3 text-sm font-bold"></p>
+     </form>
+     <form id="schedule-form" class="mt-4 space-y-3 border-t pt-4">
+      <label class="lbl" for="schedule-text">موعد أو تفاصيل الدرس</label><textarea id="schedule-text" class="input min-h-20"></textarea>
+      <label class="lbl" for="schedule-grade">الصف المستهدف</label><select id="schedule-grade" class="input"></select>
+      <button class="gold w-full rounded-xl px-4 py-3 font-bold" type="submit">نشر الموعد</button>
+      <p id="schedule-status" class="status rounded-xl px-4 py-3 text-sm font-bold"></p>
+     </form>
+    </section>
+   </div>
+
+   <section class="panel" style="background:#fffaf1">
+    <h2 class="h2">نشر فيديو أو صورة أو مذكرة أو واجب</h2>
+    <p class="muted mt-2">ارفع الملف مباشرة من جهازك ليُنشر داخل المنصة (بدون رابط)، أو الصق رابطاً خارجياً. الصور تُضغط تلقائياً. الحد الأقصى: فيديو 6MB، وباقي الملفات 5MB — للفيديوهات الطويلة استخدم رابط يوتيوب (غير مدرج).</p>
+    <form id="content-form" class="mt-4 grid gap-3 md:grid-cols-2">
+     <div><label class="lbl" for="content-type">نوع المحتوى</label><select id="content-type" class="input"><option value="video">فيديو</option><option value="image">صورة</option><option value="note">مذكرة</option><option value="homework">واجب</option></select></div>
+     <div><label class="lbl" for="content-grade">الصف المستهدف</label><select id="content-grade" class="input"></select></div>
+     <div class="md:col-span-2"><label class="lbl" for="content-title">عنوان المحتوى</label><input id="content-title" class="input"></div>
+     <div><label class="lbl" for="content-file">رفع ملف من الجهاز</label><input id="content-file" class="input" type="file" accept="video/*,image/*,application/pdf,.doc,.docx,.ppt,.pptx"></div>
+     <div><label class="lbl" for="content-link">أو رابط خارجي (اختياري)</label><input id="content-link" class="input" type="url" dir="ltr"></div>
+     <button class="primary rounded-xl px-4 py-3 font-bold md:col-span-2" type="submit">نشر المحتوى</button>
+     <p id="content-status" class="status rounded-xl px-4 py-3 text-sm font-bold md:col-span-2"></p>
+    </form>
+   </section>
+
+   <section class="panel" style="background:#f4fafb">
+    <h2 class="h2">إنشاء امتحان إلكتروني</h2>
+    <p class="muted mt-2">امتحان مقالي أو اختياري (حتى 50 سؤالاً). في الاختياري اكتب الاختيارات داخل نص السؤال، واكتب نموذج الإجابة حروفاً مفصولة بفواصل مثل: أ,ب,ج,د لتفعيل التصحيح التلقائي.</p>
+    <form id="teacher-exam-form" class="mt-4 grid gap-3 md:grid-cols-2">
+     <div><label class="lbl" for="teacher-exam-title">عنوان الامتحان</label><input id="teacher-exam-title" class="input" required></div>
+     <div><label class="lbl" for="teacher-exam-grade">الصف المستهدف</label><select id="teacher-exam-grade" class="input"></select></div>
+     <div><label class="lbl" for="teacher-exam-type">نوع الامتحان</label><select id="teacher-exam-type" class="input"><option value="اختياري">اختياري</option><option value="مقالي">مقالي</option></select></div>
+     <div><label class="lbl" for="teacher-exam-count">عدد الأسئلة (حتى 50)</label><input id="teacher-exam-count" class="input" type="number" min="1" max="50" value="5"></div>
+     <div class="md:col-span-2"><label class="lbl" for="teacher-exam-questions">الأسئلة: سؤال واحد في كل سطر</label><textarea id="teacher-exam-questions" class="input min-h-36"></textarea></div>
+     <div class="md:col-span-2"><label class="lbl" for="teacher-exam-answers">نموذج الإجابة الخاص بالأستاذ</label><textarea id="teacher-exam-answers" class="input min-h-28"></textarea></div>
+     <button class="gold rounded-xl px-4 py-3 font-bold md:col-span-2" type="submit">نشر الامتحان</button>
+     <p id="teacher-exam-status" class="status rounded-xl px-4 py-3 text-sm font-bold md:col-span-2"></p>
+    </form>
+   </section>
+
+   <section class="panel" style="background:#fffaf1"><h2 class="h2">المحتوى المنشور (حذف)</h2><div id="published-list" class="mt-4 grid gap-3 md:grid-cols-3"></div></section>
+
+   <div class="grid gap-6 lg:grid-cols-2">
+    <section class="panel" style="background:#fffaf1"><h2 class="h2">تصحيح إجابات الطلاب</h2><div id="teacher-results-list" class="mt-4 space-y-3"></div></section>
+    <section class="panel" style="background:#f4fafb"><h2 class="h2">رسائل الطلاب والردود</h2><div id="teacher-messages-list" class="mt-4 space-y-3"></div></section>
+   </div>
+   <section class="panel" style="background:#fffaf1"><h2 class="h2">التظلمات ومراجعة الامتحانات</h2><div id="appeals-list" class="mt-4 grid gap-4 md:grid-cols-2"></div></section>
+   <section class="panel" style="background:#f4fafb">
+    <h2 class="h2">إدارة الحسابات</h2>
+    <p class="muted mt-2">يمكنك حجب أو إعادة تفعيل أي طالب أو ولي أمر، أو حذف الطالب. الحساب المحجوب لا يستطيع الدخول.</p>
+    <div id="management-list" class="mt-4 grid gap-4 md:grid-cols-2"></div>
+   </section>
+  </section>
+ </div>
+</section>
+</main>
+
+<footer class="w-full px-4 pb-24 text-center">
+ <p class="muted">منصة تعليمية متكاملة • الطالب • ولي الأمر • واتساب: 01003694398</p>
+</footer>
+</div>
+
+<a id="wa-fab" class="wa-fab" target="_blank" rel="noopener noreferrer" href="#" aria-label="تواصل مع الأستاذ على واتساب">
+ <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<script>
+const $=id=>document.getElementById(id);
+const WA="201003694398",SALT="mq-platform-v1|",DEFAULT_TEACHER="100100",DEFAULT_HERO="https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg?auto=compress&cs=tinysrgb&w=1280";
+let records=[],activeStudent=null,activeParent=null,activeExam=null,teacherAuth=false,fails=0,lockUntil=0,redeemFails=0,redeemLock=0,pending=false,heroFile=null;
+const grades=["الصف الرابع الابتدائي","الصف الخامس الابتدائي","الصف السادس الابتدائي","الصف الأول الإعدادي","الصف الثاني الإعدادي","الصف الثالث الإعدادي","الصف الأول الثانوي – عام","الصف الأول الثانوي – بكالوريا","الصف الثاني الثانوي – عام","الصف الثاني الثانوي – بكالوريا","الصف الثالث الثانوي – عام","الصف الثالث الثانوي – بكالوريا"];
+const fields=["record_type","student_name","student_phone","student_grade","student_code","student_status","student_governorate","student_center","student_village","student_sub_until","parent_phone","parent_name","parent_code","parent_student_code","parent_student_name","parent_status","video_title","video_link","video_grade","video_blocked_students","note_title","note_link","note_grade","note_blocked_students","homework_title","homework_link","homework_grade","homework_blocked_students","exam_id","exam_title","exam_grade","exam_questions","exam_answers","exam_type","exam_blocked_students","result_exam_id","result_exam_title","result_student_code","result_student_name","result_answers","result_score","result_total","result_grade_label","result_status","appeal_exam_id","appeal_student_code","appeal_student_name","appeal_question_index","appeal_reason","appeal_status","appeal_corrected_score","message_sender_code","message_sender_name","message_text","message_reply","message_read","announcement_text","announcement_grade","lesson_schedule_text","lesson_schedule_grade","setting_key","setting_value","file_id","file_index","file_data","file_name","file_mime","image_title","image_link","image_grade","image_blocked_students","code_hash","code_days","code_note","code_status","code_used_by","code_used_name","created_at","content_id"];
+function row(d={}){let o={};fields.forEach(k=>o[k]="");return Object.assign(o,{created_at:new Date().toISOString(),content_id:"ID-"+Math.random().toString(36).slice(2,9)},d)}
+function rnd(n,a){const b=crypto.getRandomValues(new Uint8Array(n));return[...b].map(x=>a[x%a.length]).join("")}
+function code(p){return p+"-"+rnd(6,"ABCDEFGHJKLMNPQRSTUVWXYZ23456789")}
+function genCode(){const s=rnd(12,"ABCDEFGHJKLMNPQRSTUVWXYZ23456789");return"MQ-"+s.slice(0,4)+"-"+s.slice(4,8)+"-"+s.slice(8)}
+function norm(v){let s=v.toUpperCase().replace(/[^A-Z0-9]/g,"");if(s.length===14&&s.startsWith("MQ"))s=s.slice(2);return s}
+function sha256js(m){const K=[];for(let i=2,n=0;n<64;i++){let p=1;for(let j=2;j*j<=i;j++)if(i%j==0){p=0;break}if(p){K[n++]=(Math.pow(i,1/3)%1)*4294967296|0}}let H=[];for(let i=2,n=0;n<8;i++){let p=1;for(let j=2;j*j<=i;j++)if(i%j==0){p=0;break}if(p){H[n++]=(Math.pow(i,.5)%1)*4294967296|0}}const l=m.length,w=new Uint32Array(((l+9+63)>>6)<<4);for(let i=0;i<l;i++)w[i>>2]|=m[i]<<(24-(i&3)*8);w[l>>2]|=128<<(24-(l&3)*8);w[w.length-1]=l*8;const r=(x,n)=>(x>>>n)|(x<<(32-n));for(let o=0;o<w.length;o+=16){const x=new Uint32Array(64);for(let i=0;i<16;i++)x[i]=w[o+i];for(let i=16;i<64;i++){const s0=r(x[i-15],7)^r(x[i-15],18)^(x[i-15]>>>3),s1=r(x[i-2],17)^r(x[i-2],19)^(x[i-2]>>>10);x[i]=(x[i-16]+s0+x[i-7]+s1)|0}let[A,B,C,D,E,F,G,Hh]=H;for(let i=0;i<64;i++){const t1=(Hh+(r(E,6)^r(E,11)^r(E,25))+((E&F)^(~E&G))+K[i]+x[i])|0,t2=((r(A,2)^r(A,13)^r(A,22))+((A&B)^(A&C)^(B&C)))|0;Hh=G;G=F;F=E;E=(D+t1)|0;D=C;C=B;B=A;A=(t1+t2)|0}H=[H[0]+A|0,H[1]+B|0,H[2]+C|0,H[3]+D|0,H[4]+E|0,H[5]+F|0,H[6]+G|0,H[7]+Hh|0]}return H.map(v=>(v>>>0).toString(16).padStart(8,"0")).join("")}
+async function sha(s){const d=new TextEncoder().encode(SALT+s);if(globalThis.crypto&&crypto.subtle){const b=await crypto.subtle.digest("SHA-256",d);return[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("")}return sha256js(d)}
+function status(id,text,ok){const e=$(id);e.textContent=text;e.className="status show rounded-xl px-4 py-3 text-sm font-bold "+(ok?"bg-emerald-50 text-emerald-800":"bg-red-50 text-red-800")}
+function url(v){try{let u=new URL(v);return/^https?:$/.test(u.protocol)?u.href:""}catch(e){return""}}
+function list(t){return records.filter(x=>x.record_type===t)}
+function waLink(t){return"https://wa.me/"+WA+(t?"?text="+encodeURIComponent(t):"")}
+function fmt(d){return new Date(d).toLocaleDateString("ar-EG",{year:"numeric",month:"long",day:"numeric"})}
+function subActive(s){return!!(s&&s.student_sub_until&&new Date(s.student_sub_until)>new Date())}
+function allowed(g){return g==="كل الصفوف"||g===activeStudent.student_grade}
+function blocked(i,t){return(i[t]||"").split(",").includes(activeStudent.student_code)}
+function empty(t){let p=document.createElement("p");p.className="rounded-xl bg-slate-50 p-3 text-sm text-[#627d98]";p.textContent=t;return p}
+function card(title,detail,link,label){let a=document.createElement("article");a.className="data-card";let h=document.createElement("h3");h.className="font-extrabold";h.textContent=title;let p=document.createElement("p");p.className="mt-1 text-sm text-[#627d98]";p.textContent=detail;a.append(h,p);if(link){let x=document.createElement("a");x.href=link;x.target="_blank";x.rel="noopener noreferrer";x.className="primary mt-3 inline-block rounded-lg px-3 py-2 text-sm font-bold";x.textContent=label;a.append(x)}return a}
+function btn(cls,text,fn){let b=document.createElement("button");b.type="button";b.className=cls+" mt-2 rounded-lg px-3 py-2 text-sm font-bold";b.textContent=text;b.onclick=()=>fn(b);return b}
+function delBtn(rec,label){return btn("bg-red-700 text-white me-2",label||"حذف",async b=>{if(b.dataset.c!=="1"){b.dataset.c="1";b.textContent="تأكيد الحذف";return}b.disabled=true;const z=await window.dataSdk.delete(rec);if(!z.isOk){b.disabled=false;b.dataset.c="";b.textContent=label||"حذف"}})}
+function details(sum,text){let d=document.createElement("details");d.className="mt-2 text-sm";let s=document.createElement("summary");s.className="cursor-pointer font-bold text-[#146c94]";s.textContent=sum;let p=document.createElement("p");p.className="mt-1 whitespace-pre-wrap rounded-lg bg-slate-50 p-2";p.textContent=text||"—";d.append(s,p);return d}
+function gradeLabel(score,total){const p=score/total*100;return p>=85?"ممتاز":p>=75?"جيد جداً":p>=65?"جيد":p>=50?"مقبول":"يحتاج متابعة"}
+function setupGrades(){["student-grade","notice-grade","schedule-grade","content-grade","teacher-exam-grade"].forEach(id=>{const g=id==="student-grade"?grades:grades.concat(["كل الصفوف"]);g.forEach(x=>{let o=document.createElement("option");o.value=x;o.textContent=x;$(id).append(o)})})}
+function tabs(n){["student","parent","teacher"].forEach(x=>{$(x+"-view").classList.toggle("active",x===n);const t=$(x+"-tab");if(t)t.classList.toggle("active",x===n)})}
+
+/* ---------- الطالب ---------- */
+function logoutStudent(){activeStudent=null;activeExam=null;$("student-dashboard").classList.add("hidden");$("exam-player").classList.add("hidden")}
+function renderStudent(){
+ if(!activeStudent)return;const s=activeStudent,ok=subActive(s);
+ $("student-welcome-name").textContent=s.student_name;$("student-welcome-grade").textContent=s.student_grade;
+ const st=$("sub-state");st.textContent=ok?"اشتراكك فعّال حتى "+fmt(s.student_sub_until):"لا يوجد اشتراك فعّال. اطلب كود التفعيل من الأستاذ عبر واتساب ثم أدخله هنا.";st.className="mt-2 rounded-xl px-4 py-3 font-bold "+(ok?"bg-emerald-50 text-emerald-800":"bg-amber-50 text-amber-800");
+ $("locked-content").classList.toggle("hidden",!ok);
+ $("buy-wa").href=waLink("السلام عليكم يا أستاذ محمد، أنا "+s.student_name+" ("+s.student_grade+") وعايز أشتري كود تفعيل للمنصة. كود الطالب: "+s.student_code);
+ let news=$("student-news-list");news.innerHTML="";let n=list("announcement").filter(x=>allowed(x.announcement_grade)),sc=list("schedule").filter(x=>allowed(x.lesson_schedule_grade));
+ if(!n.length&&!sc.length)news.append(empty("لا توجد إعلانات أو مواعيد جديدة."));n.forEach(x=>news.append(card("إعلان",x.announcement_text)));sc.forEach(x=>news.append(card("موعد درس",x.lesson_schedule_text)));
+ if(ok){
+ [["video","video-list","video_title","video_link","video_grade","video_blocked_students","فتح الفيديو"],["note","note-list","note_title","note_link","note_grade","note_blocked_students","تنزيل المذكرة"],["homework","homework-list","homework_title","homework_link","homework_grade","homework_blocked_students","فتح الواجب"],["image","image-list","image_title","image_link","image_grade","image_blocked_students","عرض الصورة"]].forEach(([type,id,t,l,g,b,lab])=>{let box=$(id);box.innerHTML="";let d=list(type).filter(x=>allowed(x[g])&&!blocked(x,b));if(!d.length)box.append(empty("لا يوجد محتوى متاح حالياً."));d.forEach(x=>box.append(mediaCard(x,t,x[t],x[g],x[l],lab)))});
+ let ex=$("exam-list");ex.innerHTML="";let d=list("exam").filter(x=>allowed(x.exam_grade)&&!blocked(x,"exam_blocked_students"));if(!d.length)ex.append(empty("لا توجد امتحانات متاحة."));
+ d.forEach(x=>{let taken=list("result").some(r=>r.result_exam_id===x.exam_id&&r.result_student_code===s.student_code);let c=card(x.exam_title,x.exam_type+" • "+x.exam_grade);let b=btn("primary",taken?"تم الإرسال":"ابدأ الامتحان",()=>openExam(x));b.disabled=taken;c.append(b);ex.append(c)});
+ }
+ let res=$("student-results-list");res.innerHTML="";let mine=list("result").filter(x=>x.result_student_code===s.student_code);if(!mine.length)res.append(empty("لا توجد نتائج حتى الآن."));
+ mine.forEach(r=>{let c=card(r.result_exam_title,"النتيجة: "+(r.result_score||"بانتظار التصحيح")+" / "+r.result_total+(r.result_grade_label?" — "+r.result_grade_label:""));
+  if(r.result_status==="تم التصحيح"){const past=list("appeal").filter(a=>a.appeal_exam_id===r.result_exam_id&&a.appeal_student_code===s.student_code);past.forEach(a=>c.append(details("تظلمك: "+a.appeal_status,a.appeal_reason+(a.appeal_corrected_score?"\nالدرجة بعد المراجعة: "+a.appeal_corrected_score:""))));
+   c.append(btn("bg-[#fff8eb] text-[#7b4b08]","تظلم على سؤال",b=>{b.remove();appealBox(c,r)}))}
+  res.append(c)});
+ let msg=$("student-messages-list");msg.innerHTML="";list("message").filter(x=>x.message_sender_code===s.student_code).forEach(x=>msg.append(card("رسالتك",x.message_text+(x.message_reply?" — رد الأستاذ: "+x.message_reply:" — بانتظار الرد"))));
+}
+function appealBox(c,r){const q=document.createElement("input");q.className="input mt-2";q.placeholder="رقم السؤال";const t=document.createElement("textarea");t.className="input mt-2 min-h-16";t.placeholder="اكتب سبب التظلم";c.append(q,t,btn("gold","إرسال التظلم",async b=>{if(!t.value.trim())return;b.disabled=true;const z=await window.dataSdk.create(row({record_type:"appeal",appeal_exam_id:r.result_exam_id,appeal_student_code:activeStudent.student_code,appeal_student_name:activeStudent.student_name,appeal_question_index:q.value.trim()||"مراجعة عامة",appeal_reason:t.value.trim(),appeal_status:"بانتظار المراجعة"}));if(!z.isOk)b.disabled=false}))}
+function openExam(exam){
+ if(!subActive(activeStudent))return;
+ activeExam=exam;let q=(exam.exam_questions||"").split("\n").filter(Boolean);$("exam-player-title").textContent=exam.exam_title;$("exam-questions").innerHTML="";$("exam-status").className="status";
+ q.forEach((x,i)=>{let d=document.createElement("div");d.className="data-card";let l=document.createElement("label");l.className="block font-bold";l.htmlFor="answer-"+i;l.textContent=(i+1)+". "+x;d.append(l);
+  if(exam.exam_type==="اختياري"){["أ","ب","ج","د"].forEach(o=>{let lb=document.createElement("label");lb.className="mt-2 flex gap-2";let r=document.createElement("input");r.type="radio";r.name="answer-"+i;r.value=o;lb.append(r,document.createTextNode(o));d.append(lb)})}
+  else{let t=document.createElement("textarea");t.id="answer-"+i;t.className="input mt-3 min-h-20";d.append(t)}
+  $("exam-questions").append(d)});
+ $("exam-player").classList.remove("hidden");$("exam-player").scrollIntoView({behavior:"smooth"})}
+
+/* ---------- ولي الأمر ---------- */
+function renderParent(){
+ if(!activeParent)return;let s=list("student").find(x=>x.student_code===activeParent.parent_student_code);if(!s)return;
+ let p=$("parent-profile");p.innerHTML="";[["الطالب",s.student_name],["الصف",s.student_grade],["الحالة",s.student_status],["الاشتراك",subActive(s)?"فعّال حتى "+fmt(s.student_sub_until):"غير مفعّل"]].forEach(x=>p.append(card(x[0],x[1])));
+ let r=$("parent-results");r.innerHTML="";let d=list("result").filter(x=>x.result_student_code===s.student_code);if(!d.length)r.append(empty("لا توجد نتائج حتى الآن."));
+ d.forEach(x=>r.append(card(x.result_exam_title,"النتيجة: "+(x.result_score||"بانتظار التصحيح")+" / "+x.result_total+(x.result_grade_label?" — "+x.result_grade_label:""))))}
+
+/* ---------- المعلم ---------- */
+function renderTeacher(){
+ const students=list("student"),parents=list("parent"),results=list("result"),msgs=list("message"),appeals=list("appeal"),codes=list("code");
+ const ts=$("teacher-stats");ts.innerHTML="";[["الطلاب",students.length],["أولياء الأمور",parents.length],["بانتظار التصحيح",results.filter(x=>x.result_status!=="تم التصحيح").length],["رسائل بدون رد",msgs.filter(x=>!x.message_reply).length]].forEach(x=>ts.append(card(x[0],x[1])));
+ // الأكواد
+ const cl=$("codes-list");cl.innerHTML="";if(!codes.length)cl.append(empty("لم يتم إنشاء أكواد بعد."));
+ codes.slice().reverse().forEach(c=>{const used=c.code_status==="مستخدم";const k=card(used?"كود مستخدم":"كود متاح",c.code_days+" يوم"+(c.code_note?" • "+c.code_note:"")+(used?" • استخدمه: "+c.code_used_name:""));k.append(delBtn(c));cl.append(k)});
+ // المحتوى المنشور
+ const pl=$("published-list");pl.innerHTML="";
+ [["video","فيديو","video_title","video_grade"],["note","مذكرة","note_title","note_grade"],["homework","واجب","homework_title","homework_grade"],["image","صورة","image_title","image_grade"],["exam","امتحان","exam_title","exam_grade"],["announcement","إعلان","announcement_text","announcement_grade"],["schedule","موعد","lesson_schedule_text","lesson_schedule_grade"]].forEach(([t,lab,tt,g])=>list(t).forEach(x=>{const k=card(lab+": "+String(x[tt]).slice(0,50),x[g]);k.append(delContent(x,t));pl.append(k)}));
+ if(!pl.children.length)pl.append(empty("لا يوجد محتوى منشور."));
+ // النتائج
+ const rl=$("teacher-results-list");rl.innerHTML="";if(!results.length)rl.append(empty("لا توجد إجابات مرسلة."));
+ results.forEach(r=>{const c=card(r.result_exam_title,r.result_student_name+" — "+r.result_status);const ex=list("exam").find(e=>e.exam_id===r.result_exam_id);
+  c.append(details("إجابات الطالب",r.result_answers));if(ex)c.append(details("نموذج الإجابة",ex.exam_answers));
+  if(r.result_status!=="تم التصحيح"){
+   const key=ex&&ex.exam_type==="اختياري"?(ex.exam_answers||"").split(/[\s,،|]+/).filter(Boolean):[];
+   if(key.length&&key.length===Number(r.result_total))c.append(btn("primary me-2","تصحيح تلقائي",async b=>{b.disabled=true;const a=r.result_answers.split(" | ");const sc=a.filter((x,i)=>x.trim()===key[i]).length;const z=await window.dataSdk.update({...r,result_score:String(sc),result_grade_label:gradeLabel(sc,Number(r.result_total)),result_status:"تم التصحيح"});if(!z.isOk)b.disabled=false}));
+   const i=document.createElement("input");i.className="input mt-3";i.type="number";i.min="0";i.max=r.result_total;i.placeholder="الدرجة من "+r.result_total;
+   c.append(i,btn("gold","حفظ التصحيح",async b=>{if(i.value==="")return;const sc=Number(i.value),tot=Number(r.result_total);if(sc<0||sc>tot)return;b.disabled=true;const z=await window.dataSdk.update({...r,result_score:String(sc),result_grade_label:gradeLabel(sc,tot),result_status:"تم التصحيح"});if(!z.isOk)b.disabled=false}))}
+  rl.append(c)});
+ // الرسائل
+ const ml=$("teacher-messages-list");ml.innerHTML="";if(!msgs.length)ml.append(empty("لا توجد رسائل."));
+ msgs.forEach(m=>{const c=card(m.message_sender_name,m.message_text);const i=document.createElement("textarea");i.className="input mt-3 min-h-16";i.value=m.message_reply||"";i.placeholder="اكتب رد الأستاذ";c.append(i,btn("primary","إرسال الرد",async b=>{b.disabled=true;const z=await window.dataSdk.update({...m,message_reply:i.value.trim(),message_read:"نعم"});if(!z.isOk)b.disabled=false}));ml.append(c)});
+ // التظلمات
+ const al=$("appeals-list");al.innerHTML="";if(!appeals.length)al.append(empty("لا توجد تظلمات."));
+ appeals.forEach(a=>{const c=card(a.appeal_student_name+" — "+a.appeal_status,"السؤال "+a.appeal_question_index+": "+a.appeal_reason);const i=document.createElement("input");i.className="input mt-3";i.placeholder="الدرجة بعد المراجعة (اختياري)";i.value=a.appeal_corrected_score||"";
+  c.append(i,btn("gold me-2","إنهاء المراجعة",async b=>{b.disabled=true;const z=await window.dataSdk.update({...a,appeal_status:"تمت المراجعة",appeal_corrected_score:i.value});if(!z.isOk)b.disabled=false}));
+  if(a.appeal_corrected_score){const r=results.find(x=>x.result_exam_id===a.appeal_exam_id&&x.result_student_code===a.appeal_student_code);if(r)c.append(btn("primary","اعتماد الدرجة الجديدة",async b=>{const sc=Number(a.appeal_corrected_score),tot=Number(r.result_total);if(isNaN(sc)||sc<0||sc>tot)return;b.disabled=true;const z=await window.dataSdk.update({...r,result_score:String(sc),result_grade_label:gradeLabel(sc,tot)});if(!z.isOk)b.disabled=false}))}
+  al.append(c)});
+ // الحسابات
+ const man=$("management-list");man.innerHTML="";
+ students.forEach(s=>{const c=card(s.student_name,s.student_grade+" • "+s.student_code+" • "+s.student_status+" • "+(subActive(s)?"مشترك حتى "+fmt(s.student_sub_until):"بدون اشتراك"));
+  const d=document.createElement("div");d.className="mt-3 grid gap-2 rounded-lg bg-slate-50 p-3 text-sm text-[#627d98]";[["رقم الطالب",s.student_phone],["رقم ولي الأمر",s.parent_phone],["المحافظة",s.student_governorate],["المركز",s.student_center],["القرية أو المدينة",s.student_village],["اسم ولي الأمر",s.parent_name]].forEach(([l,v])=>{let p=document.createElement("p");p.textContent=l+": "+(v||"غير مسجل");d.append(p)});
+  const bl=btn("bg-red-50 text-red-700 me-2",s.student_status==="محجوب"?"إعادة تفعيل الطالب":"حجب الطالب",async b=>{b.disabled=true;const z=await window.dataSdk.update({...s,student_status:s.student_status==="محجوب"?"نشط":"محجوب"});if(!z.isOk)b.disabled=false});
+  const dl=btn("bg-red-700 text-white","حذف الطالب",async b=>{if(b.dataset.c!=="1"){b.dataset.c="1";b.textContent="تأكيد حذف الطالب";return}b.disabled=true;const linked=parents.find(p=>p.parent_student_code===s.student_code);let z=await window.dataSdk.delete(s);if(z.isOk&&linked)z=await window.dataSdk.delete(linked);if(!z.isOk){b.disabled=false;b.dataset.c="";b.textContent="حذف الطالب"}});
+  c.append(d,bl,dl);man.append(c)});
+ parents.forEach(p=>{const c=card("ولي الأمر: "+p.parent_name,p.parent_code+" • "+p.parent_status);c.append(btn("bg-slate-100",p.parent_status==="محجوب"?"إعادة تفعيل ولي الأمر":"حجب ولي الأمر",async b=>{b.disabled=true;const z=await window.dataSdk.update({...p,parent_status:p.parent_status==="محجوب"?"نشط":"محجوب"});if(!z.isOk)b.disabled=false}));man.append(c)});
+}
+
+/* ---------- عام ---------- */
+function setting(k){const r=list("setting").find(x=>x.setting_key===k);return r?r.setting_value:""}
+async function saveSetting(k,v){const ex=list("setting").find(x=>x.setting_key===k);return ex?window.dataSdk.update({...ex,setting_value:v}):window.dataSdk.create(row({record_type:"setting",setting_key:k,setting_value:v}))}
+function busy(){const a=document.activeElement;return!!(a&&a.closest&&a.closest(".data-card")&&/INPUT|TEXTAREA/.test(a.tagName))}
+function renderAll(){
+ if(busy()){pending=true;return}
+ const nm=setting("platform_name");if(nm){$("display-platform-name").textContent=nm;document.title=nm;if(document.activeElement!==$("platform-name"))$("platform-name").value=nm}
+ const hero=setting("hero_image");const src=hero&&(url(hero)||hero.startsWith("data:image/"))?hero:DEFAULT_HERO;if($("hero-img").getAttribute("src")!==src)$("hero-img").src=src;
+ if(activeStudent){const f=list("student").find(x=>x.student_code===activeStudent.student_code);if(!f||f.student_status==="محجوب")logoutStudent();else activeStudent=f}
+ if(activeParent){const f=list("parent").find(x=>x.parent_code===activeParent.parent_code);if(!f||f.parent_status==="محجوب"){activeParent=null;$("parent-dashboard").classList.add("hidden")}else activeParent=f}
+ renderStudent();renderParent();if(teacherAuth)renderTeacher()}
+document.addEventListener("focusout",()=>setTimeout(()=>{if(pending&&!busy()){pending=false;renderAll()}},300));
+
+$("student-tab").onclick=()=>tabs("student");$("parent-tab").onclick=()=>tabs("parent");
+$("admin-link").onclick=()=>{tabs("teacher");window.scrollTo({top:0,behavior:"smooth"})};
+$("teacher-back").onclick=()=>tabs("student");
+$("teacher-logout").onclick=()=>{teacherAuth=false;$("teacher-dashboard").classList.add("hidden");$("teacher-gate").classList.remove("hidden");$("teacher-code").value="";["teacher-results-list","teacher-messages-list","appeals-list","management-list","codes-list","published-list"].forEach(i=>$(i).innerHTML="");tabs("student")};
+$("student-logout").onclick=logoutStudent;
+["wa-fab","hero-wa"].forEach(i=>$(i).href=waLink("السلام عليكم يا أستاذ محمد، عندي استفسار بخصوص المنصة"));
+
+$("student-register-form").onsubmit=async e=>{e.preventDefault();
+ if(records.length>=990)return status("student-register-status","تم الوصول للحد الأقصى من السجلات، تواصل مع الأستاذ.",false);
+ const n=$("student-name").value.trim(),ph=$("student-phone").value.trim(),pp=$("parent-phone").value.trim();
+ if(!n)return status("student-register-status","أدخل اسم الطالب.",false);
+ if(!/^01[0125]\d{8}$/.test(ph)||!/^01[0125]\d{8}$/.test(pp))return status("student-register-status","أدخل رقمي هاتف مصريين صحيحين (11 رقماً).",false);
+ const sc=code("ST"),pc=code("PR"),b=e.submitter;b.disabled=true;
+ let z=await window.dataSdk.create(row({record_type:"student",student_name:n,student_phone:ph,student_grade:$("student-grade").value,student_code:sc,student_status:"نشط",student_governorate:$("student-governorate").value.trim(),student_center:$("student-center").value.trim(),student_village:$("student-village").value.trim(),parent_name:$("parent-name").value.trim(),parent_phone:pp}));
+ if(z.isOk)z=await window.dataSdk.create(row({record_type:"parent",parent_name:$("parent-name").value.trim(),parent_phone:pp,parent_code:pc,parent_student_code:sc,parent_student_name:n,parent_status:"نشط"}));
+ b.disabled=false;if(!z.isOk)return status("student-register-status","تعذر الحفظ، حاول مرة أخرى.",false);
+ $("codes-box").classList.remove("hidden");$("new-codes").textContent="كود الطالب: "+sc+" | كود ولي الأمر: "+pc;e.target.reset();status("student-register-status","تم التسجيل بنجاح. بعد الدخول اطلب كود التفعيل من الأستاذ عبر واتساب.",true)};
+
+$("student-login-form").onsubmit=e=>{e.preventDefault();const s=list("student").find(x=>x.student_code.toUpperCase()===$("student-code").value.trim().toUpperCase());
+ if(!s)return status("student-login-status","كود الطالب غير صحيح.",false);if(s.student_status==="محجوب")return status("student-login-status","تم حجب هذا الحساب.",false);
+ activeStudent=s;$("student-dashboard").classList.remove("hidden");status("student-login-status","تم فتح مساحة الطالب.",true);renderStudent()};
+
+$("parent-login-form").onsubmit=e=>{e.preventDefault();const p=list("parent").find(x=>x.parent_code.toUpperCase()===$("parent-code").value.trim().toUpperCase());
+ if(!p)return status("parent-login-status","كود ولي الأمر غير صحيح.",false);if(p.parent_status==="محجوب")return status("parent-login-status","تم حجب هذا الحساب.",false);
+ activeParent=p;$("parent-dashboard").classList.remove("hidden");status("parent-login-status","تم فتح مساحة المتابعة.",true);renderParent()};
+
+$("redeem-form").onsubmit=async e=>{e.preventDefault();
+ if(Date.now()<redeemLock)return status("redeem-status","محاولات كثيرة خاطئة، انتظر دقيقة ثم حاول.",false);
+ const v=norm($("redeem-code").value);if(v.length!==12)return status("redeem-status","اكتب الكود كاملاً بالشكل MQ-XXXX-XXXX-XXXX.",false);
+ const b=e.submitter;b.disabled=true;const h=await sha(v);const c=list("code").find(x=>x.code_hash===h);
+ if(!c){b.disabled=false;if(++redeemFails>=5){redeemLock=Date.now()+60000;redeemFails=0}return status("redeem-status","الكود غير صحيح.",false)}
+ if(c.code_status!=="غير مستخدم"){b.disabled=false;return status("redeem-status","هذا الكود مستخدم من قبل.",false)}
+ const s=activeStudent,days=Number(c.code_days)||30,base=subActive(s)?new Date(s.student_sub_until):new Date(),until=new Date(base.getTime()+days*864e5).toISOString();
+ let z=await window.dataSdk.update({...c,code_status:"مستخدم",code_used_by:s.student_code,code_used_name:s.student_name});
+ if(z.isOk)z=await window.dataSdk.update({...s,student_sub_until:until});
+ b.disabled=false;redeemFails=0;if(!z.isOk)return status("redeem-status","تعذر تفعيل الكود، حاول مرة أخرى أو راسل الأستاذ.",false);
+ e.target.reset();status("redeem-status","تم التفعيل! اشتراكك ساري حتى "+fmt(until),true)};
+
+$("teacher-login-form").onsubmit=async e=>{e.preventDefault();
+ try{
+ if(Date.now()<lockUntil)return status("teacher-login-status","محاولات خاطئة كثيرة، انتظر دقيقة.",false);
+ const v=$("teacher-code").value.trim().replace(/[٠-٩]/g,d=>"٠١٢٣٤٥٦٧٨٩".indexOf(d)),rec=setting("teacher_code_hash"),leg=setting("teacher_code");
+ const ok=rec?rec===await sha("T|"+v):(leg?v===leg:v===DEFAULT_TEACHER);
+ if(!ok){if(++fails>=5){lockUntil=Date.now()+60000;fails=0}return status("teacher-login-status","الكود غير صحيح.",false)}
+ fails=0;teacherAuth=true;$("teacher-code").value="";$("teacher-gate").classList.add("hidden");$("teacher-dashboard").classList.remove("hidden");$("default-warning").classList.toggle("hidden",!!rec||false);
+ try{renderTeacher()}catch(x){console.error(x)}
+ }catch(x){status("teacher-login-status","تعذر الدخول: "+(x&&x.message||x),false)}};
+
+$("hero-file").onchange=async e=>{const f=e.target.files[0];if(!f)return;try{heroFile=await fileToData(f);status("settings-status","تم اختيار الصورة، اضغط حفظ الإعدادات.",true)}catch(x){heroFile=null;status("settings-status","تعذر قراءة الصورة.",false)}};
+function fileToData(file){return new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>{const i=new Image();i.onload=()=>{const k=Math.min(1,900/i.width),c=document.createElement("canvas");c.width=i.width*k;c.height=i.height*k;c.getContext("2d").drawImage(i,0,0,c.width,c.height);let q=.75,d=c.toDataURL("image/jpeg",q);while(d.length>150000&&q>.3){q-=.1;d=c.toDataURL("image/jpeg",q)}res(d)};i.onerror=rej;i.src=r.result};r.onerror=rej;r.readAsDataURL(file)})}
+$("hero-reset").onclick=async()=>{const z=await saveSetting("hero_image","");status("settings-status",z.isOk?"تمت إعادة الصورة الافتراضية.":"تعذر الحفظ.",z.isOk)};
+$("settings-form").onsubmit=async e=>{e.preventDefault();const b=e.submitter;
+ const nc=$("new-teacher-code").value.trim();if(nc&&nc.length<6)return status("settings-status","كود الأستاذ يجب ألا يقل عن 6 خانات.",false);
+ const hu=$("hero-url").value.trim();if(hu&&!url(hu))return status("settings-status","رابط الصورة غير صحيح.",false);
+ b.disabled=true;const jobs=[];const nm=$("platform-name").value.trim();
+ if(nm)jobs.push(saveSetting("platform_name",nm));
+ if(heroFile)jobs.push(saveSetting("hero_image",heroFile));else if(hu)jobs.push(saveSetting("hero_image",hu));
+ if(nc)jobs.push(sha("T|"+nc).then(h=>saveSetting("teacher_code_hash",h)).then(r=>{if(r.isOk)$("default-warning").classList.add("hidden");return r}));
+ const rs=await Promise.all(jobs);b.disabled=false;const ok=rs.every(x=>x.isOk);
+ if(ok){heroFile=null;$("hero-file").value="";$("hero-url").value="";$("new-teacher-code").value=""}
+ status("settings-status",ok?"تم حفظ الإعدادات.":"تعذر حفظ الإعدادات.",ok)};
+
+$("codes-form").onsubmit=async e=>{e.preventDefault();const n=Number($("codes-qty").value),days=Number($("codes-days").value),note=$("codes-note").value.trim();
+ if(!(n>=1&&n<=50))return status("codes-status","عدد الأكواد من 1 إلى 50.",false);
+ if(records.length+n>990)return status("codes-status","مساحة السجلات لا تكفي، احذف أكواداً أو محتوى قديماً.",false);
+ const b=e.submitter;b.disabled=true;const out=[];
+ for(let i=0;i<n;i++){const c=genCode(),h=await sha(norm(c));const z=await window.dataSdk.create(row({record_type:"code",code_hash:h,code_days:String(days),code_note:note,code_status:"غير مستخدم"}));if(!z.isOk)break;out.push(c)}
+ b.disabled=false;
+ if(out.length){$("codes-output").value=out.join("\n");$("codes-output-box").classList.remove("hidden");$("codes-wa").href="https://wa.me/?text="+encodeURIComponent("كود تفعيل المنصة ("+days+" يوم):\n"+out.join("\n")+"\nادخل مساحة الطالب واكتب الكود في خانة \"كود التفعيل\".")}
+ status("codes-status",out.length===n?"تم إنشاء "+n+" كود.":"تم إنشاء "+out.length+" من "+n+" فقط، حاول مرة أخرى.",out.length===n)};
+$("codes-copy").onclick=async()=>{try{await navigator.clipboard.writeText($("codes-output").value);status("codes-status","تم النسخ.",true)}catch(x){$("codes-output").select();status("codes-status","حدّد النص وانسخه يدوياً.",false)}};
+
+function publishForm(id,type,text,grade,st){$(id).onsubmit=async e=>{e.preventDefault();const b=e.submitter,t=$(text).value.trim();if(!t)return status(st,"اكتب النص أولاً.",false);b.disabled=true;const d={record_type:type};
+ if(type==="announcement"){d.announcement_text=t;d.announcement_grade=$(grade).value}else{d.lesson_schedule_text=t;d.lesson_schedule_grade=$(grade).value}
+ const z=await window.dataSdk.create(row(d));b.disabled=false;status(st,z.isOk?"تم النشر.":"تعذر النشر.",z.isOk);if(z.isOk)e.target.reset()}}
+publishForm("notice-form","announcement","notice-text","notice-grade","notice-status");publishForm("schedule-form","schedule","schedule-text","schedule-grade","schedule-status");
+
+const CH=100000,LIM={video:6,other:5};
+function readDataURL(f){return new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result);r.onerror=rej;r.readAsDataURL(f)})}
+function imgData(f,max){return new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>{const i=new Image();i.onload=()=>{const k=Math.min(1,max/Math.max(i.width,i.height)),c=document.createElement("canvas");c.width=Math.round(i.width*k);c.height=Math.round(i.height*k);c.getContext("2d").drawImage(i,0,0,c.width,c.height);res(c.toDataURL("image/jpeg",.8))};i.onerror=rej;i.src=r.result};r.onerror=rej;r.readAsDataURL(f)})}
+function isFile(l){return typeof l==="string"&&l.startsWith("file:")}
+function chunksOf(fid){return list("filechunk").filter(c=>c.file_id===fid).sort((a,b)=>Number(a.file_index)-Number(b.file_index))}
+async function delContent(x,t){const k=btn("bg-red-700 text-white me-2","حذف",async b=>{if(b.dataset.c!=="1"){b.dataset.c="1";b.textContent="تأكيد الحذف";return}b.disabled=true;const l=x[t+"_link"];let z={isOk:true};if(isFile(l)){for(const c of chunksOf(l.slice(5))){z=await window.dataSdk.delete(c);if(!z.isOk)break}}if(z.isOk)z=await window.dataSdk.delete(x);if(!z.isOk){b.disabled=false;b.dataset.c="";b.textContent="حذف"}});return k}
+function blobFrom(dataUrl){const i=dataUrl.indexOf(","),mime=(dataUrl.slice(5,i).split(";")[0])||"application/octet-stream",bin=atob(dataUrl.slice(i+1)),u=new Uint8Array(bin.length);for(let j=0;j<bin.length;j++)u[j]=bin.charCodeAt(j);return new Blob([u],{type:mime})}
+function viewer(x,blob){let o=document.getElementById("file-viewer");if(o)o.remove();o=document.createElement("div");o.id="file-viewer";o.style.cssText="position:fixed;inset:0;background:rgba(16,42,67,.88);z-index:100;display:flex;flex-direction:column;align-items:center;padding:16px;gap:10px";const u=URL.createObjectURL(blob),m=blob.type;const bar=document.createElement("div");bar.className="flex gap-2";const cl=document.createElement("button");cl.className="rounded-lg bg-white px-4 py-2 font-bold";cl.textContent="إغلاق";cl.onclick=()=>{URL.revokeObjectURL(u);o.remove()};bar.append(cl);const dl=document.createElement("a");dl.href=u;dl.download=x.file_name||"file";dl.className="rounded-lg bg-[#e9a23b] px-4 py-2 font-bold text-white";dl.textContent="تنزيل";bar.append(dl);let el;if(m.startsWith("video/")){el=document.createElement("video");el.controls=true;el.autoplay=true;el.setAttribute("controlslist","nodownload")}else if(m.startsWith("image/"))el=document.createElement("img");else if(m==="application/pdf")el=document.createElement("iframe");if(el){el.src=u;el.style.cssText="max-width:100%;max-height:calc(100% - 60px);width:"+(m==="application/pdf"?"100%":"auto")+";height:"+(m==="application/pdf"?"calc(100% - 60px)":"auto")+";background:#fff;border-radius:12px";o.append(bar,el)}else o.append(bar);document.body.append(o)}
+function mediaCard(x,t,title,grade,link,label){if(!isFile(link))return card(title,grade,url(link),label);const c=card(title,grade+(x.file_name?" • "+x.file_name:"")),fid=link.slice(5);c.append(btn("primary",label,async b=>{const cs=chunksOf(fid);if(cs.length!==Number(x.file_data)){b.textContent="الملف لسه بيتحمّل… حاول بعد لحظات";setTimeout(()=>b.textContent=label,2500);return}b.disabled=true;b.textContent="جاري التحميل…";try{viewer(x,blobFrom(cs.map(q=>q.file_data).join("")))}catch(e){b.textContent="تعذر فتح الملف";setTimeout(()=>b.textContent=label,2500)}b.disabled=false;if(b.textContent==="جاري التحميل…")b.textContent=label}));return c}
+$("content-form").onsubmit=async e=>{e.preventDefault();const type=$("content-type").value,title=$("content-title").value.trim(),lk=$("content-link").value.trim(),f=$("content-file").files[0],link=url(lk),st=m=>status("content-status",m.msg||m,m.ok===true);
+ if(!title)return status("content-status","أدخل عنوان المحتوى.",false);if(!f&&!link)return status("content-status","ارفع ملفاً أو أدخل رابطاً صحيحاً.",false);if(!f&&lk&&!link)return status("content-status","الرابط غير صحيح.",false);
+ const d={record_type:type};d[type+"_title"]=title;d[type+"_grade"]=$("content-grade").value;d[type+"_blocked_students"]="";const b=e.submitter;b.disabled=true;let made=[];
+ try{
+  if(f){
+   if(type==="image"&&!f.type.startsWith("image/"))throw new Error("اختر ملف صورة.");if(type==="video"&&!f.type.startsWith("video/"))throw new Error("اختر ملف فيديو.");
+   const isImg=f.type.startsWith("image/"),max=(f.type.startsWith("video/")?LIM.video:LIM.other)*1048576;if(!isImg&&f.size>max)throw new Error("حجم الملف أكبر من الحد ("+Math.round(max/1048576)+"MB). استخدم رابطاً خارجياً.");
+   status("content-status","جاري تجهيز الملف…",true);const data=isImg?await imgData(f,1280):await readDataURL(f),n=Math.ceil(data.length/CH);
+   if(records.length+n+1>985)throw new Error("مساحة التخزين لا تكفي لهذا الملف ("+n+" سجل). احذف محتوى قديماً أو استخدم رابطاً.");
+   const fid=code("FL");for(let i=0;i<n;i++){status("content-status","جاري الرفع "+(i+1)+" / "+n+"…",true);const r=row({record_type:"filechunk",file_id:fid,file_index:String(i),file_data:data.slice(i*CH,(i+1)*CH)});made.push(r.content_id);const z=await window.dataSdk.create(r);if(!z.isOk)throw new Error("تعذر رفع الملف، حاول مرة أخرى.")}
+   d[type+"_link"]="file:"+fid;d.file_name=f.name;d.file_mime=isImg?"image/jpeg":f.type;d.file_data=String(n);
+  }else d[type+"_link"]=link;
+  const z=await window.dataSdk.create(row(d));if(!z.isOk)throw new Error("تعذر النشر.");
+  status("content-status","تم نشر المحتوى.",true);e.target.reset();
+ }catch(x){status("content-status",x.message||"تعذر النشر.",false);if(f){const ids=new Set(made);for(const c of list("filechunk").filter(c=>ids.has(c.content_id)))await window.dataSdk.delete(c)}}
+ b.disabled=false};
+
+$("teacher-exam-form").onsubmit=async e=>{e.preventDefault();const qs=$("teacher-exam-questions").value.trim().split("\n").filter(Boolean),count=Number($("teacher-exam-count").value);
+ if(!qs.length||qs.length>50||qs.length!==count)return status("teacher-exam-status","اكتب عدداً من الأسئلة يطابق العدد المحدد، وبحد أقصى 50.",false);
+ const b=e.submitter;b.disabled=true;
+ const z=await window.dataSdk.create(row({record_type:"exam",exam_id:code("EX"),exam_title:$("teacher-exam-title").value.trim(),exam_grade:$("teacher-exam-grade").value,exam_type:$("teacher-exam-type").value,exam_questions:qs.join("\n"),exam_answers:$("teacher-exam-answers").value.trim(),exam_blocked_students:""}));
+ b.disabled=false;status("teacher-exam-status",z.isOk?"تم نشر الامتحان.":"تعذر نشر الامتحان.",z.isOk);if(z.isOk)e.target.reset()};
+
+$("exam-form").onsubmit=async e=>{e.preventDefault();
+ if(!activeExam||!subActive(activeStudent))return status("exam-status","اشتراكك غير فعّال.",false);
+ if(list("result").some(r=>r.result_exam_id===activeExam.exam_id&&r.result_student_code===activeStudent.student_code))return status("exam-status","سبق أن أرسلت هذا الامتحان.",false);
+ const qs=(activeExam.exam_questions||"").split("\n").filter(Boolean),answers=qs.map((_,i)=>{const r=document.querySelector('input[name="answer-'+i+'"]:checked');return r?r.value:($("answer-"+i)?.value||"").trim().replace(/\|/g,"/")});
+ if(answers.some(x=>!x))return status("exam-status","أجب عن جميع الأسئلة.",false);
+ const b=e.submitter;b.disabled=true;
+ const z=await window.dataSdk.create(row({record_type:"result",result_exam_id:activeExam.exam_id,result_exam_title:activeExam.exam_title,result_student_code:activeStudent.student_code,result_student_name:activeStudent.student_name,result_answers:answers.join(" | "),result_total:String(qs.length),result_status:"بانتظار التصحيح"}));
+ b.disabled=false;status("exam-status",z.isOk?"تم إرسال الإجابات للتصحيح.":"تعذر إرسال الإجابات.",z.isOk);if(z.isOk)setTimeout(()=>{$("exam-player").classList.add("hidden");activeExam=null},1200)};
+$("close-exam").onclick=()=>{$("exam-player").classList.add("hidden");activeExam=null};
+
+$("student-message-form").onsubmit=async e=>{e.preventDefault();const t=$("student-message").value.trim();if(!t)return status("student-message-status","اكتب رسالتك أولاً.",false);
+ const b=e.submitter;b.disabled=true;const z=await window.dataSdk.create(row({record_type:"message",message_sender_code:activeStudent.student_code,message_sender_name:activeStudent.student_name,message_text:t,message_reply:"",message_read:"لا"}));
+ b.disabled=false;status("student-message-status",z.isOk?"تم إرسال الرسالة.":"تعذر الإرسال.",z.isOk);if(z.isOk)e.target.reset()};
+
+(async()=>{setupGrades();await window.dataSdk.init({onDataChanged(d){records=d;renderAll()}});renderAll()})();
+</script>
+</body></html>
